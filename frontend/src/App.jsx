@@ -154,7 +154,7 @@ function App() {
       });
 
       const BACKEND_URL =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        import.meta.env.VITE_BACKEND_URL || "https://multilan-waterscorecard.onrender.com";
 
       const jsonData = JSON.stringify(formToSend, replacer);
 

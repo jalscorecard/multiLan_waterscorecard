@@ -53,7 +53,7 @@ export default function WaterManagementForm() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/submit", {
+      const res = await fetch("https://multilan-waterscorecard.onrender.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

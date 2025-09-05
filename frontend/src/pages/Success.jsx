@@ -878,7 +878,7 @@ const Success = ({ form, onRestart }) => {
       formData.append("email", form.email);
       formData.append("cc_email", "contact@jalsmruti.org");
 
-      const res = await fetch("http://localhost:5000/api/send-pdf-email", {
+      const res = await fetch("https://multilan-waterscorecard.onrender.com/api/send-pdf-email", {
         method: "POST",
         body: formData,
       });
