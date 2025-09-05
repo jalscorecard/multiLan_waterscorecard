@@ -12,7 +12,7 @@ const upload = multer();
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: ["https://frontend-mb8h.onrender.com"],
+  origin: ["https://multilan-waterscorecard-frontend.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   credentials: true,
@@ -44,7 +44,6 @@ app.get("/api/health", (req, res) => {
 app.post("/api/submit", upload.none(), async (req, res) => {
   const form = req.body;
 
-  // Required fields validation
   if (!form.fullName || !form.email) {
     return res.status(400).json({
       success: false,
@@ -52,7 +51,6 @@ app.post("/api/submit", upload.none(), async (req, res) => {
     });
   }
 
-  // Map a default date if missing
   form.date = form.date || new Date().toISOString();
 
   const insertQuery = `
@@ -154,7 +152,6 @@ app.post(
   }
 );
 
-// Global error handler
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   return res.status(500).json({
